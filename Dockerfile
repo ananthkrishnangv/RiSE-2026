@@ -1,4 +1,4 @@
-FROM node:23-slim AS builder
+FROM node:24-slim AS builder
 
 WORKDIR /app
 COPY package*.json ./
@@ -11,7 +11,7 @@ ENV ADAPTER=node
 RUN npm run build
 RUN npm prune --production
 
-FROM node:23-slim
+FROM node:24-slim
 
 WORKDIR /app
 COPY --from=builder /app/build build/
