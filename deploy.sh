@@ -13,10 +13,10 @@ IMAGE_NAME="rise-2026"
 echo "Deploying to $HOST..."
 
 # Rsync source code
-rsync -avz --exclude 'node_modules' --exclude '.git' --exclude '.svelte-kit' . $USER@$HOST:$TARGET_DIR
+rsync -avz -e "ssh -o StrictHostKeyChecking=no" --exclude 'node_modules' --exclude '.git' --exclude '.svelte-kit' . $USER@$HOST:$TARGET_DIR
 
 # Build and Run on Host
-ssh $USER@$HOST << EOF
+ssh -o StrictHostKeyChecking=no $USER@$HOST << EOF
   cd $TARGET_DIR
   
   echo "Building image..."
