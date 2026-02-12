@@ -1,0 +1,13 @@
+node_modules/
+.DS_Store
+.env
+.env.*
+!.env.example
+.svelte-kit/
+build/
+.db
+*.sqlite
+*.sqlite-journal
+rise.db
+rise.db-shm
+rise.db-wal
